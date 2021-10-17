@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 /*
- * Purpose - To Add Multiple an Address Book System
+ * Purpose - To Ensure that there is no duplicate entry 
  * 
  */
 public class AddressBookSystem {
@@ -115,6 +115,24 @@ public class AddressBookSystem {
     		}
     	}
     }
+    /**
+     * Method to check for duplicate entry before adding the person.
+     */
+    public void duplicateCheck(String firstName) {
+        for (int k = 0; k < arrayDetails.size(); k++) {
+            String contactName = arrayDetails.get(k).getFirstName();
+
+            if (firstName.equals(contactName)) {
+                System.out.println("This Person is Already Present");
+            } else {
+                System.out.println("You can Add this Person");
+                break;
+            }
+        }
+    }
+    /*
+     * Method to create multiple address book and editing it 
+     */
     public void createAddressBook() {
 
         while (true) {
@@ -160,6 +178,11 @@ public class AddressBookSystem {
                                 break;
                             case 4:
                                 details.display();
+                                break;
+                            case 5:
+                                System.out.println("Enter first name to check for duplicancy");
+                                String enteredName = sc.next();
+                                details.duplicateCheck(enteredName);
                                 break;
                             default:
                                 System.out.println("Choose valid option");
