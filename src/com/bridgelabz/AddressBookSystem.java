@@ -2,7 +2,7 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.Scanner;
 /*
- * Purpose - To create an Address Book System
+ * Purpose - To Add Multiple Contacts an Address Book System
  * 
  */
 public class AddressBookSystem {
@@ -109,11 +109,12 @@ public class AddressBookSystem {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
         AddressBookSystem details = new AddressBookSystem();
-        details.addDetails();
-        int i =0;
-        while (i ==0) {
+        int input ;
+        int ans;
+        Scanner scanner = new Scanner(System.in);
+        do {
         	System.out.println("Welcome to address book program");
-        	System.out.println("1.Add details.\n2.Edit details.\n3.Delete details select one");
+        	System.out.println("select one\n1.Add details.\n2.Edit details.\n3.Delete details ");
         	int choose = sc.nextInt();
         	switch (choose) {
         	case 1:
@@ -126,13 +127,14 @@ public class AddressBookSystem {
                 details.deleteDetails();
                 break;
             default:
-            	i = 1;
             	System.out.println("Wrong option");
             	break;
         	}
-        	
-        	
+        	System.out.println("Do you want to continue?(0/1");
+        	ans=scanner.nextInt();
         }
+        while(ans==1);
+        
     }
 }
 
